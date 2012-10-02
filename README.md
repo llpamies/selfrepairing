@@ -5,7 +5,7 @@ To compile run:
     $ cython selfrepairing.pyx (not needed)
     $ python setup.py build
 
-''Note'': After compiling you might want to move
+``Note``: After compiling you might want to move
 'selfrepairing.so'  to the working dir by (or equivalent):
 
 $ cp build/lib.linux-i686-2.7/selfrepairing.so .
