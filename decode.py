@@ -25,8 +25,14 @@ encoded_data = [numpy.zeros(buffsize, dtype=numpy.uint8) for i in xrange(k)]
 file_name = sys.argv[1]
 file_size = os.path.getsize(file_name)
 
-survived = random.sample(range(n), k) 
-inputfiles = [io.open(file_name+"_%d"%i,'rb') for i in survived]
+survived = []
+inputfiles = []
+for i in xrange(n):
+    name = file_name+"_%d"%i
+    if os.path.exists(name):
+        inputfiles.append(io.open(file_name+"_%d"%i,'rb'))
+        survived.append(i)
+
 outputfile = io.open(file_name+"_decoded", 'wb')
 
 for i,p in enumerate(survived):

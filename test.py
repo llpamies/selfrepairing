@@ -41,8 +41,14 @@ print "Encoded data:"
 for i,d in enumerate(encoded_data):
     print i,enc_points[i],d
 
-survived = random.sample(range(n), k)
-#survived = [0,1,2]
+print "Repairing 0 from 2 and 1:"
+enc_points[0] = enc_points[1]^enc_points[2]
+for i,d in enumerate(encoded_data):
+    print i,enc_points[i],d
+
+survived = [0,1,3]
+#try this instead (some random combinations do not allow to decode):
+#survived = random.sample(range(n), k)
 encoded_data = [encoded_data[i] for i in survived]
 
 print "Survived data:"
